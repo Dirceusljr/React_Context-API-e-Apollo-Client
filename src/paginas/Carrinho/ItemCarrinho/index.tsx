@@ -1,6 +1,6 @@
 import { AbInputQuantidade } from 'ds-alurabooks'
-import { IItemCarrinho } from '../../interfaces/IItemCarrinho'
-import { formatador } from '../../utils/formatador-moeda'
+import { IItemCarrinho } from '../../../interfaces/IItemCarrinho'
+import { formatador } from '../../../utils/formatador-moeda'
 import './ItemCarrinho.css'
 import lixeira from './assets/lixeira.png'
 
