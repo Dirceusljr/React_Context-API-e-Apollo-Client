@@ -8,9 +8,11 @@ export const OBTER_CARRINHO = gql`
         quantidade
         opcaoCompra {
           preco
+          id
         }
         livro {
           titulo
+          id
           descricao
           imagemCapa
           autor {

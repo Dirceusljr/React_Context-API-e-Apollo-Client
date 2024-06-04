@@ -3,12 +3,26 @@ import { IItemCarrinho } from '../../../interfaces/IItemCarrinho'
 import { formatador } from '../../../utils/formatador-moeda'
 import './ItemCarrinho.css'
 import lixeira from './assets/lixeira.png'
+import { useCarrinhoContext } from '../../../contextApi/carrinho'
 
 interface IItemCarrinhoProps {
     item: IItemCarrinho
 }
 
 const ItemCarrinho = ({ item }: IItemCarrinhoProps) => {
+
+    const { adicionarItemCarrinho } = useCarrinhoContext()
+
+    const alterarQuantidadeCarrinho = (quantidade: number) => {
+        adicionarItemCarrinho({
+            livro: item.livro,
+            opcaoCompra: item.opcaoCompra,
+            quantidade
+        
+        })
+
+    }
+
   return (
     <div className="item-carrinho">
         <figure>
@@ -32,7 +46,10 @@ const ItemCarrinho = ({ item }: IItemCarrinhoProps) => {
             </ul>
         </div>
         <div className="quantidade">
-            <AbInputQuantidade value={item.quantidade} onChange={() => console.log('ABInputQuantidade - OnChange')} />
+            <AbInputQuantidade 
+                value={item.quantidade} 
+                onChange={alterarQuantidadeCarrinho} 
+            />
         </div>
         <div>
             <button className="btn-excluir">
