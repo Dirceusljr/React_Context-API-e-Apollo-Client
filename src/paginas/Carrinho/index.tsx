@@ -5,12 +5,14 @@ import { formatador } from '../../utils/formatador-moeda'
 import { AbBotao } from 'ds-alurabooks'
 import ItemCarrinho from './ItemCarrinho'
 import { useCarrinhoContext } from '../../contextApi/carrinho'
+import LoadingCarrinho from '../../componentes/LoadingCarrinho'
 
 const Carrinho = () => {
-    const { carrinho, adicionarItemCarrinho } = useCarrinhoContext()
+    const { carrinho, carregando } = useCarrinhoContext()
 
   return (
     <section className="pagina-carrinho">
+        {carregando && <LoadingCarrinho />}
         <TituloPrincipal texto='Minha Sacola' />
         <div className="conteudo">
             <h4>Itens Selecionados</h4>

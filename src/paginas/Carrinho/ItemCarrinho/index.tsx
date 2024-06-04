@@ -26,9 +26,15 @@ const ItemCarrinho = ({ item }: IItemCarrinhoProps) => {
             livro: item.livro,
             opcaoCompra: item.opcaoCompra,
             quantidade
-        
         })
+    }
 
+    const excluirItemCarrinho = () => {
+            removerItemCarrinho({
+                livro: item.livro,
+                opcaoCompra: item.opcaoCompra,
+                quantidade: item.quantidade
+            })
     }
 
   return (
@@ -61,7 +67,11 @@ const ItemCarrinho = ({ item }: IItemCarrinhoProps) => {
         </div>
         <div>
             <button className="btn-excluir">
-                <img src={lixeira} alt="Ícone de uma lixeira" />
+                <img 
+                    src={lixeira} 
+                    alt="Ícone de uma lixeira"
+                    onClick={excluirItemCarrinho}
+                />
             </button>
         </div>
     </div>
